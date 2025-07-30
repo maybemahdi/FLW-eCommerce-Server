@@ -14,7 +14,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: async (req, file) => ({
-    folder: "meals", // Store images in 'meals' folder
+    folder: "products", // Store images in 'meals' folder
     format: "png", // Optional: Set file format
     public_id: `${Date.now()}-${file.originalname}`,
   }),
@@ -25,5 +25,13 @@ export const upload = multer({
   storage,
   limits: {
     fileSize: 10 * 1024 * 1024, // 10 MB file size limit (adjust as needed)
+  },
+});
+
+// ✅ Create Multer Upload Middleware using Memory Storage
+export const memoryUpload = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: 10 * 1024 * 1024,
   },
 });

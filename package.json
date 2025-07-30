@@ -21,11 +21,12 @@
     "@types/cookie-parser": "^1.4.8",
     "@types/cors": "^2.8.17",
     "@types/eslint__js": "^8.42.3",
-    "@types/express": "^5.0.1",
+    "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.9",
-    "@types/multer": "^1.4.12",
+    "@types/multer": "^1.4.13",
     "@types/node": "^22.14.1",
     "@types/nodemailer": "^6.4.17",
+    "@types/uuid": "^10.0.0",
     "eslint": "9.14.0",
     "globals": "^16.0.0",
     "prettier": "3.5.3",
@@ -39,6 +40,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.856.0",
     "@prisma/client": "^6.6.0",
     "bcrypt": "^5.1.1",
     "cloudinary": "^1.41.3",
@@ -53,6 +55,7 @@
     "nodemailer": "^6.10.1",
     "stripe": "^17.7.0",
     "tsconfig-paths": "^4.2.0",
+    "uuid": "^11.1.0",
     "zod": "^3.24.2"
   }
 }

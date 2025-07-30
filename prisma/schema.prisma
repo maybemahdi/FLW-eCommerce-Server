@@ -31,3 +31,69 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+enum Gender {
+  MALE
+  FEMALE
+  UNISEX
+}
+
+enum Availability {
+  IN_STOCK
+  OUT_OF_STOCK
+}
+
+enum Material {
+  LEATHER
+  STAINLESS_STEEL
+  RUBBER
+  SILICONE
+  NYLON
+  FABRIC
+  CERAMIC
+  PLASTIC
+  RESIN
+  TITANIUM
+  MESH
+  WOOD
+}
+
+model Category {
+  id       String    @id @default(cuid()) @map("_id")
+  name     String    @unique
+  products Product[]
+}
+
+model Brand {
+  id       String    @id @default(cuid()) @map("_id")
+  name     String    @unique
+  products Product[]
+}
+
+model Product {
+  id            String   @id @default(cuid()) @map("_id")
+  productCode   String   @unique
+  name          String
+  description   String
+  price         Float
+  discountPrice Float
+  images        String[]
+
+  categoryId String
+  category   Category @relation(fields: [categoryId], references: [id])
+  brandId    String
+  brand      Brand    @relation(fields: [brandId], references: [id])
+
+  gender   Gender
+  material Material
+  colors   String[]
+  sizes    String[]
+
+  availability Availability @default(IN_STOCK)
+  isNewArrival Boolean      @default(false)
+  isFeatured   Boolean      @default(false)
+  isDeleted    Boolean      @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

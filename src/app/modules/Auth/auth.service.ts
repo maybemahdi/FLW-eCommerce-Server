@@ -7,12 +7,12 @@ import AppError from "@/app/errors/AppError";
 import { StatusCodes } from "http-status-codes";
 import config from "@/config";
 import bcrypt from "@/libs/bcrypt";
-import { sendEmail } from "@/app/utils/sendEmail";
-import isUserExistsByEmail from "@/app/utils/isUserExistsByEmail";
 import { UserStatus } from "@prisma/client";
-import isPasswordMatched from "@/app/utils/isPasswordMatched";
 import { jwtHelpers } from "@/helpers/jwtHelpers";
 import { JwtPayload, Secret } from "jsonwebtoken";
+import isPasswordMatched from "@/utils/isPasswordMatched";
+import isUserExistsByEmail from "@/utils/isUserExistsByEmail";
+import { sendEmail } from "@/utils/sendEmail";
 
 const registerUser = async (payload: ICreateUser) => {
   const isUserExist = await isUserExistsByEmail(payload.email);
