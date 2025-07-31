@@ -67,6 +67,7 @@ model Category {
 model Brand {
   id       String    @id @default(cuid()) @map("_id")
   name     String    @unique
+  logo     String
   products Product[]
 }
 
